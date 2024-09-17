@@ -258,7 +258,7 @@ export default function MiniDrawer() {
           </List>
         </div>
       </Drawer>
-      <Box component="main" className='mx-5' sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" style={{marginLeft: '3rem'}} sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography sx={{ marginBottom: 2 }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
