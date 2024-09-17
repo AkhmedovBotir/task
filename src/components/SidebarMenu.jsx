@@ -16,8 +16,11 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import img from "../img/logo.png"
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import SettingsIcon from '@mui/icons-material/Settings';
+import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
 
 const drawerWidth = 240;
 
@@ -77,6 +80,9 @@ const AppBar = styled(MuiAppBar, {
 const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' })(
   ({ theme }) => ({
     width: drawerWidth,
+    position: 'absolute',
+    top: 0,
+    left: 0,
     flexShrink: 0,
     whiteSpace: 'nowrap',
     boxSizing: 'border-box',
@@ -114,10 +120,10 @@ export default function MiniDrawer() {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <AppBar position="fixed" open={open}>
-        <Toolbar>
+      <AppBar position="fixed" elevation={1} open={open}>
+        <Toolbar className='bg-light' >
           <IconButton
-            color="inherit"
+            color="dark"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
@@ -130,20 +136,24 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Mini variant drawer
+          <Typography variant="h6" className='text-dark' noWrap component="div">
+            Cегодняшние заказы
           </Typography>
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>
-        <DrawerHeader>
+        <DrawerHeader className='d-flex justify-content-between'>
+          <div className="d-flex justify-content-between align-items-center">
+            <img src={img} width={40} className='mx-2' />
+            <Typography variant="span" className='fw-bold'>Profile</Typography>
+          </div>
           <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <KeyboardDoubleArrowLeftIcon />}
           </IconButton>
         </DrawerHeader>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {['Воронка подборка'].map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <ListItemButton
                 sx={[
@@ -153,11 +163,11 @@ export default function MiniDrawer() {
                   },
                   open
                     ? {
-                        justifyContent: 'initial',
-                      }
+                      justifyContent: 'initial',
+                    }
                     : {
-                        justifyContent: 'center',
-                      },
+                      justifyContent: 'center',
+                    },
                 ]}
               >
                 <ListItemIcon
@@ -168,25 +178,25 @@ export default function MiniDrawer() {
                     },
                     open
                       ? {
-                          mr: 3,
-                        }
+                        mr: 3,
+                      }
                       : {
-                          mr: 'auto',
-                        },
+                        mr: 'auto',
+                      },
                   ]}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  <AnalyticsIcon />
                 </ListItemIcon>
                 <ListItemText
                   primary={text}
                   sx={[
                     open
                       ? {
-                          opacity: 1,
-                        }
+                        opacity: 1,
+                      }
                       : {
-                          opacity: 0,
-                        },
+                        opacity: 0,
+                      },
                   ]}
                 />
               </ListItemButton>
@@ -194,59 +204,61 @@ export default function MiniDrawer() {
           ))}
         </List>
         <Divider />
-        <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={[
-                  {
-                    minHeight: 48,
-                    px: 2.5,
-                  },
-                  open
-                    ? {
-                        justifyContent: 'initial',
-                      }
-                    : {
-                        justifyContent: 'center',
-                      },
-                ]}
-              >
-                <ListItemIcon
+        <div className="d-flex align-items-end h-100">
+          <List>
+            {['Settings', 'Account'].map((text, index) => (
+              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
+                <ListItemButton
                   sx={[
                     {
-                      minWidth: 0,
-                      justifyContent: 'center',
+                      minHeight: 48,
+                      px: 2.5,
                     },
                     open
                       ? {
-                          mr: 3,
-                        }
+                        justifyContent: 'initial',
+                      }
                       : {
-                          mr: 'auto',
-                        },
+                        justifyContent: 'center',
+                      },
                   ]}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText
-                  primary={text}
-                  sx={[
-                    open
-                      ? {
+                  <ListItemIcon
+                    sx={[
+                      {
+                        minWidth: 0,
+                        justifyContent: 'center',
+                      },
+                      open
+                        ? {
+                          mr: 3,
+                        }
+                        : {
+                          mr: 'auto',
+                        },
+                    ]}
+                  >
+                    {index % 2 === 0 ? <SettingsIcon /> : <AccountCircleIcon />}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text}
+                    sx={[
+                      open
+                        ? {
                           opacity: 1,
                         }
-                      : {
+                        : {
                           opacity: 0,
                         },
-                  ]}
-                />
-              </ListItemButton>
-            </ListItem>
-          ))}
-        </List>
+                    ]}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </div>
       </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" className='mx-5' sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
         <Typography sx={{ marginBottom: 2 }}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
