@@ -280,7 +280,7 @@ export default function MiniDrawer() {
             </div>
           </Box>
         </Box>
-        <Row>
+        <Row className='my-3'>
           <Col>
             <NewCards />
           </Col>

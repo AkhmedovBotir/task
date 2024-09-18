@@ -13,6 +13,7 @@ import shop from "../img/shop.png"
 import cardImg from "../img/card.png"
 import walk from "../img/walk.png"
 import money from "../img/money 1.png"
+import clickimg from "../img/click.png"
 
 export default function NewCards() {
     const [show, setShow] = useState(false);
@@ -94,11 +95,34 @@ export default function NewCards() {
                 }
             ]
         },
+        {
+            id: 321545,
+            popover: 'Anim pariatur cliche reprehenderit, enim eiusmod',
+            sum: '300 560',
+            imgIcon: clickimg,
+            imgPay: shop,
+            listItem: [
+                {
+                    itemNum: 3,
+                    itemName: 'Пепси'
+                },
+                {
+                    itemNum: 1,
+                    itemName: 'Гамбургер',
+                    cheese: "С сыром",
+                    luke: "Без лука"
+                },
+                {
+                    itemNum: 2,
+                    itemName: "Лаваш мясной Standart острый"
+                }
+            ]
+        },
     ]
 
     return (
         <Box component='main'>
-            <Typography variant='h5'>Новый (2)</Typography>
+            <Typography variant='h6' className='bg-primary fw-bold px-3 py-2 text-light rounded-top-3'>Новый (2)</Typography>
             <Box component='div' className='p-2 bg-secondary-subtle'>
                 {
                     card.map(res => (
@@ -106,7 +130,7 @@ export default function NewCards() {
                             <Card.Header style={{ background: 'transparent' }}>
                                 <Typography ref={ref} variant='h5' className='d-flex justify-content-between align-items-center'>
                                     <Box component='div'>
-                                        <span className='fw-bold'>ID: {res.id}</span>
+                                        <span className='fw-bold' style={{fontSize: '1rem'}}>ID: {res.id}</span>
                                         <button className='btn' onClick={handleClick}>
                                             <InfoOutlinedIcon />
                                         </button>
@@ -135,11 +159,7 @@ export default function NewCards() {
 
                             <Card.Body>
                                 <ListGroup as="ol" numbered>
-                                    {/* <ListGroup.Item as="li" className="border-0 d-flex justify-content-between align-items-start">
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold">3 X Пепси</div>
-                                        </div>
-                                    </ListGroup.Item> */}
+
                                     {
                                         res.listItem.map(item => (
                                             <ListGroup.Item as="li" className="border-0 d-flex justify-content-between align-items-start">
@@ -151,16 +171,12 @@ export default function NewCards() {
                                             </ListGroup.Item>
                                         ))
                                     }
-                                    {/* <ListGroup.Item as="li" className="border-0 d-flex justify-content-between align-items-start">
-                                        <div className="ms-2 me-auto">
-                                            <div className="fw-bold">2 X Лаваш мясной Standart острый</div>
-                                        </div>
-                                    </ListGroup.Item> */}
+
                                 </ListGroup>
                                 <Box component='div' className='text-muted d-flex align-items-center justify-content-end fs-7 py-1'><AccessTimeFilledOutlinedIcon className='mx-1' /> 15:22</Box>
                             </Card.Body>
-                            <Card.Footer className='d-flex justify-content-around'>
-                                <Button variant='outline-secondary' className='text-danger'><ClearOutlinedIcon /> Отменить</Button>
+                            <Card.Footer className='d-flex justify-content-around cardfooter'>
+                                <Button variant='outline-secondary' className='button-footer text-danger'><ClearOutlinedIcon /> Отменить</Button>
                                 <Button variant='primary'><CheckOutlinedIcon /> Заказать</Button>
                             </Card.Footer>
                         </Card>

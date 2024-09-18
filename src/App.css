@@ -7,12 +7,12 @@
   font-family: 'Lato', sans-serif;
 }
 
-.home,
-.reports,
-.products {
-  display: flex;
-  height: 90vh;
-  align-items: center;
-  justify-content: center;
-  font-size: 3rem;
+@media (max-width: 425px) {
+  .cardfooter {
+    display: flex;
+    flex-direction: column;
+  }
+  .button-footer{
+    margin-bottom: 1rem;
+  }
 }
