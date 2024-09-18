@@ -287,7 +287,7 @@ export default function MiniDrawer() {
             </div>
           </Box>
         </Box>
-        <Row className='my-3'>
+        <Row sm={1} md={2} xl={3} xxl={4}  className='my-3'>
           <Col>
             <NewCards />
           </Col>
