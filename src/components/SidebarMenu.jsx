@@ -10,7 +10,6 @@ import Typography from '@mui/material/Typography';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -21,6 +20,11 @@ import AnalyticsIcon from '@mui/icons-material/Analytics';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SettingsIcon from '@mui/icons-material/Settings';
 import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrowLeft';
+import { TextField } from '@mui/material';
+import AssignmentIcon from '@mui/icons-material/Assignment';
+import { Col, Row } from 'react-bootstrap';
+
+import { NewCards, BlankCards, CourierCards, ReadyCards } from './'
 
 const drawerWidth = 240;
 
@@ -258,35 +262,38 @@ export default function MiniDrawer() {
           </List>
         </div>
       </Drawer>
-      <Box component="main" style={{marginLeft: '3rem'}} sx={{ flexGrow: 1, p: 3 }}>
+      <Box component="main" style={{ marginLeft: '3rem' }} sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Typography sx={{ marginBottom: 2 }}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non
-          enim praesent elementum facilisis leo vel. Risus at ultrices mi tempus
-          imperdiet. Semper risus in hendrerit gravida rutrum quisque non tellus.
-          Convallis convallis tellus id interdum velit laoreet id donec ultrices.
-          Odio morbi quis commodo odio aenean sed adipiscing. Amet nisl suscipit
-          adipiscing bibendum est ultricies integer quis. Cursus euismod quis viverra
-          nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum
-          leo. Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis
-          feugiat vivamus at augue. At augue eget arcu dictum varius duis at
-          consectetur lorem. Velit sed ullamcorper morbi tincidunt. Lorem donec massa
-          sapien faucibus et molestie ac.
-        </Typography>
-        <Typography sx={{ marginBottom: 2 }}>
-          Consequat mauris nunc congue nisi vitae suscipit. Fringilla est ullamcorper
-          eget nulla facilisi etiam dignissim diam. Pulvinar elementum integer enim
-          neque volutpat ac tincidunt. Ornare suspendisse sed nisi lacus sed viverra
-          tellus. Purus sit amet volutpat consequat mauris. Elementum eu facilisis
-          sed odio morbi. Euismod lacinia at quis risus sed vulputate odio. Morbi
-          tincidunt ornare massa eget egestas purus viverra accumsan in. In hendrerit
-          gravida rutrum quisque non tellus orci ac. Pellentesque nec nam aliquam sem
-          et tortor. Habitant morbi tristique senectus et. Adipiscing elit duis
-          tristique sollicitudin nibh sit. Ornare aenean euismod elementum nisi quis
-          eleifend. Commodo viverra maecenas accumsan lacus vel facilisis. Nulla
-          posuere sollicitudin aliquam ultrices sagittis orci a.
-        </Typography>
+        <Box component="div" className='d-flex justify-content-around align-items-center'>
+          <TextField id="standard-basic" label="Поиск по ID" variant="standard" />
+          <Box component="div">
+            <div class="input-group">
+              <span class="input-group-text" style={{ background: "transparent" }} id="basic-addon1">
+                <AssignmentIcon />
+              </span>
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Всего: 115</option>
+                <option value="1">Самый первый</option>
+                <option value="2">Последний</option>
+                <option value="3">Ближайший</option>
+              </select>
+            </div>
+          </Box>
+        </Box>
+        <Row>
+          <Col>
+            <NewCards />
+          </Col>
+          <Col>
+            <BlankCards />
+          </Col>
+          <Col>
+            <CourierCards />
+          </Col>
+          <Col>
+            <ReadyCards />
+          </Col>
+        </Row>
       </Box>
     </Box>
   );
