@@ -23,7 +23,7 @@ import KeyboardDoubleArrowLeftIcon from '@mui/icons-material/KeyboardDoubleArrow
 import { TextField } from '@mui/material';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import { Col, Row } from 'react-bootstrap';
-
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import { NewCards, BlankCards, CourierCards, ReadyCards } from './'
 
 const drawerWidth = 240;
@@ -264,9 +264,11 @@ export default function MiniDrawer() {
       </Drawer>
       <Box component="main" style={{ marginLeft: '3rem' }} sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Box component="div" className='d-flex justify-content-around align-items-center'>
-          <TextField id="standard-basic" label="Поиск по ID" variant="standard" />
-          <Box component="div">
+        <Box component="div" className='boxbasic d-flex justify-content-between align-items-center'>
+          <div className='mx-2 standardbasic'>
+            <TextField id="standard-basic" label="Поиск по ID" variant="standard" />
+          </div>
+          <Box component="div" className='d-flex align-items-center'>
             <div class="input-group">
               <span class="input-group-text" style={{ background: "transparent" }} id="basic-addon1">
                 <AssignmentIcon />
@@ -277,6 +279,11 @@ export default function MiniDrawer() {
                 <option value="2">Последний</option>
                 <option value="3">Ближайший</option>
               </select>
+            </div>
+            <div class="input-group mx-2 justify-content-end">
+              <span class="input-group-text" style={{ background: "transparent" }} id="basic-addon1">
+                <AccessTimeIcon className='text-muted' /> <span className='mx-2 fw-bold'>41:08</span>
+              </span>
             </div>
           </Box>
         </Box>

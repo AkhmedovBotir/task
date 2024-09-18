@@ -8,11 +8,29 @@
 }
 
 @media (max-width: 425px) {
+  .boxbasic,
   .cardfooter {
     display: flex;
     flex-direction: column;
   }
   .button-footer{
     margin-bottom: 1rem;
+  }
+  #standard-basic,
+  .standardbasic{
+    width: 35vh !important;
+  }
+  .standardbasic{
+    margin-bottom: 1rem;
+  }
+  .btn svg,
+  .h5{
+    font-size: 1rem !important;
+  }
+  li{
+    font-size: .7rem;
+  }
+  .h6{
+    font-size: .8rem !important;
   }
 }

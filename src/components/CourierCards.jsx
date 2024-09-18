@@ -4,22 +4,13 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Popover from 'react-bootstrap/Popover';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
-import { Badge, ListGroup, Overlay } from 'react-bootstrap';
+import {ListGroup, Overlay } from 'react-bootstrap';
 import AccessTimeFilledOutlinedIcon from '@mui/icons-material/AccessTimeFilledOutlined';
-import CheckOutlinedIcon from '@mui/icons-material/CheckOutlined';
-import payme from "../img/payme.png"
 import shop from "../img/shop.png"
 import cardImg from "../img/card.png"
-import walk from "../img/walk.png"
-import money from "../img/money 1.png"
 
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-import avatar from "../img/avatar.png"
-export default function CourierCards() {
+export default function ReadyCards() {
   const [show, setShow] = useState(false);
   const [target, setTarget] = useState(null);
   const ref = useRef(null);
@@ -30,21 +21,7 @@ export default function CourierCards() {
   };
 
   let card = [
-    {
-      id: 321545,
-      popover: 'Anim pariatur cliche reprehenderit, enim eiusmod',
-      sum: '300 560',
-      imgIcon: shop,
-      imgPay: payme,
-      listItem: [
-        {
-          itemNum: 2,
-          itemName: 'Лаваш мясной Standart острый'
-        },
-      ],
-      courier: false,
-      
-    },
+
     {
       id: 321545,
       popover: 'Anim pariatur cliche reprehenderit, enim eiusmod',
@@ -76,50 +53,21 @@ export default function CourierCards() {
       courier: false,
 
     },
-    {
-      id: 321545,
-      popover: 'Anim pariatur cliche reprehenderit, enim eiusmod',
-      sum: '300 560',
-      imgIcon: money,
-      imgPay: walk,
-      listItem: [
-        {
-          itemNum: 1,
-          itemName: 'Лаваш мясной Standart острый',
-        }
-      ],
-      courier: false,
-
-    },
-    {
-      id: 321545,
-      popover: 'Anim pariatur cliche reprehenderit, enim eiusmod',
-      sum: '300 560',
-      imgIcon: money,
-      imgPay: walk,
-      listItem: [
-        {
-          itemNum: 1,
-          itemName: 'Лаваш мясной Standart острый',
-        }
-      ],
-      courier: true,
-
-    },
+    
   ]
 
   return (
     <Box component='main'>
-      <Typography variant='h6' className='bg-success fw-bold px-3 py-2 text-light rounded-top-3'>Готов (4)</Typography>
+      <Typography variant='h6' style={{background: '#1ac19d'}} className='fw-bold px-3 py-2 text-light rounded-top-3'>Курьер в пути (1)</Typography>
       <Box component='div' className='p-2 bg-secondary-subtle'>
         {
           card.map(res => (
             <Card className="my-2">
               <Card.Header style={{ background: 'transparent' }}>
                 <Typography ref={ref} variant='h5' className='d-flex justify-content-between align-items-center'>
-                  <Box component='div'>
-                    <span className='fw-bold' style={{fontSize: '1rem'}}>ID: {res.id}</span>
-                    <button className='btn' onClick={handleClick}>
+                  <Box component='div' className='h6'>
+                    <span className='fw-bold' style={{fontSize: '1rem'}}><span className='h6'>ID: {res.id}</span></span>
+                    <button className='btn py-0' onClick={handleClick}>
                       <InfoOutlinedIcon />
                     </button>
                     <Overlay
@@ -138,7 +86,7 @@ export default function CourierCards() {
                     </Overlay>
                   </Box>
                   <Box component='div' className='fs-6 text-muted'>
-                    <span>{res.sum} сум</span>
+                    <span className='h6'>{res.sum} сум</span>
                     <img src={res.imgIcon} className='mx-2' />
                     <img src={res.imgPay} />
                   </Box>
@@ -150,8 +98,8 @@ export default function CourierCards() {
                   {
                     res.listItem.map(item => (
                       <ListGroup.Item as="li" className="border-0 d-flex justify-content-between align-items-start">
-                        <div className="ms-2 me-auto">
-                          <div className="fw-bold">{item.itemNum} X {item.itemName}</div>
+                        <div className="ms-2 h6 me-auto">
+                          <div className="fw-bold h6">{item.itemNum} X {item.itemName}</div>
                           <div>{item.cheese}</div>
                           <div>{item.luke}</div>
                         </div>
@@ -160,7 +108,7 @@ export default function CourierCards() {
                   }
 
                 </ListGroup>
-                <Box component='div' className='text-muted d-flex align-items-center justify-content-end fs-7 py-1'><AccessTimeFilledOutlinedIcon className='mx-1' /> 15:22</Box>
+                <Box component='div' className='text-muted d-flex align-items-center justify-content-end fs-7 py-1'><AccessTimeFilledOutlinedIcon className='mx-1 my-0 h6' /> 15:22</Box>
               </Card.Body>
               {
                 res.courier && (

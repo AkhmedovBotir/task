@@ -127,7 +127,7 @@ export default function BlankCards() {
               <Card.Header style={{ background: 'transparent' }}>
                 <Typography ref={ref} variant='h5' className='d-flex justify-content-between align-items-center'>
                   <Box component='div'>
-                    <span className='fw-bold' style={{fontSize: '1rem'}}>ID: {res.id}</span>
+                    <span className='fw-bold h6 my-1' style={{fontSize: '1rem'}}>ID: {res.id}</span>
                     <button className='btn' onClick={handleClick}>
                       <InfoOutlinedIcon />
                     </button>
@@ -147,7 +147,7 @@ export default function BlankCards() {
                     </Overlay>
                   </Box>
                   <Box component='div' className='fs-6 text-muted'>
-                    <span>{res.sum} сум</span>
+                    <span className='h6'>{res.sum} сум</span>
                     <img src={res.imgIcon} className='mx-2' />
                     <img src={res.imgPay} />
                   </Box>
@@ -169,7 +169,7 @@ export default function BlankCards() {
                   }
 
                 </ListGroup>
-                <Box component='div' className='text-muted d-flex align-items-center justify-content-end fs-7 py-1'><AccessTimeFilledOutlinedIcon className='mx-1' /> 15:22</Box>
+                <Box component='div' className='text-muted d-flex align-items-center justify-content-end fs-7 py-1 h6'><AccessTimeFilledOutlinedIcon className='mx-1 my-2 h5' /> 15:22</Box>
                 <hr />
                 {
                   res.comments && (
