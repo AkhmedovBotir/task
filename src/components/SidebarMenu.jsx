@@ -295,10 +295,10 @@ export default function MiniDrawer() {
             <BlankCards />
           </Col>
           <Col>
-            <CourierCards />
+            <ReadyCards />
           </Col>
           <Col>
-            <ReadyCards />
+            <CourierCards />
           </Col>
         </Row>
       </Box>
