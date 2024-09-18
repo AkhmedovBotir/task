@@ -64,7 +64,7 @@ export default function ReadyCards() {
           card.map(res => (
             <Card className="my-2">
               <Card.Header style={{ background: 'transparent' }}>
-                <Typography ref={ref} variant='h5' className='d-flex justify-content-between align-items-center'>
+                <Typography ref={ref} variant='h5' className='box-header d-flex justify-content-between align-items-center'>
                   <Box component='div' className='h6'>
                     <span className='fw-bold' style={{fontSize: '1rem'}}><span className='h6'>ID: {res.id}</span></span>
                     <button className='btn py-0' onClick={handleClick}>

@@ -125,7 +125,7 @@ export default function BlankCards() {
           card.map(res => (
             <Card className="my-2">
               <Card.Header style={{ background: 'transparent' }}>
-                <Typography ref={ref} variant='h5' className='d-flex justify-content-between align-items-center'>
+                <Typography ref={ref} variant='h5' className='box-header d-flex justify-content-between align-items-center'>
                   <Box component='div'>
                     <span className='fw-bold h6 my-1' style={{fontSize: '1rem'}}>ID: {res.id}</span>
                     <button className='btn' onClick={handleClick}>

@@ -34,3 +34,9 @@
     font-size: .8rem !important;
   }
 }
+@media (max-width: 375px) {
+  .box-header{
+    display: flex !important;
+    flex-direction: column !important;
+  }
+}
